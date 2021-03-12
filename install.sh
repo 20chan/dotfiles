@@ -33,8 +33,8 @@ install_ohmyzsh() {
 
 # link files
 
-ln -s "${DOTFILES_PATH}/.zshrc" "${ZSHRC_PATH}"
-ln -s "${DOTFILES_PATH}/.vimrc" "${VIMRC_PATH}"
+ln -s "${DOTFILES_PATH}/zshrc" "${ZSHRC_PATH}"
+ln -s "${DOTFILES_PATH}/vimrc" "${VIMRC_PATH}"
 
 # patch zsh theme
 

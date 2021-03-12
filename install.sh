@@ -14,11 +14,21 @@ install_fzf() {
     ~/.fzf/install
 }
 
+# install requirements
+
 [ ! -f ~/.fzf.zsh ] && install_fzf
+
+# backup existing files
 
 [[ -f "${ZSHRC_PATH}" || -h "${ZSHRC_PATH}" ]] && backup_file "${ZSHRC_PATH}"
 [[ -f "${VIMRC_PATH}" || -h "${VIMRC_PATH}" ]] && backup_file "${VIMRC_PATH}"
 
+# link files
+
 ln -s "${DOTFILES_PATH}/.zshrc" "${ZSHRC_PATH}"
 ln -s "${DOTFILES_PATH}/.vimrc" "${VIMRC_PATH}"
+
+# git settings
+
+git config --global push.default current
 

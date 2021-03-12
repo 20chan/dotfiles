@@ -1,0 +1,10 @@
+diff --git a/themes/eastwood.zsh-theme b/themes/eastwood.zsh-theme
+index 88134f8..b32ecdc 100644
+--- a/themes/eastwood.zsh-theme
++++ b/themes/eastwood.zsh-theme
+@@ -20,4 +20,4 @@ git_custom_status() {
+   fi
+ }
+ 
+-PROMPT='$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}%B$%b '
++PROMPT='%{$fg[red]%}H$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}%B$%b '

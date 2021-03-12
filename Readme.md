@@ -8,9 +8,10 @@
 
 ## list
 
-- install fzf
+- install fzf, oh-my-zsh
 - ~/.zshrc
 - ~/.vimrc
+- custom zsh theme eastwood prompt patch
 
 ## usage
 

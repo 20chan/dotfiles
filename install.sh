@@ -5,9 +5,10 @@ DOTFILES_PATH="/home/${USER}/.dotfiles"
 OHMYZSH_PATH="/home/${USER}/.oh-my-zsh"
 ZSHRC_PATH="/home/${USER}/.zshrc"
 VIMRC_PATH="/home/${USER}/.vimrc"
+TMUX_CONF_PATH="/home/${USER}/.tmux.conf"
 
 backup_file() {
-    mv "$1" "${1}.backup"
+    [[ -f "${1}" || -h "${1}" ]] && mv "$1" "${1}.backup"
 }
 
 install_fzf() {
@@ -26,20 +27,24 @@ install_ohmyzsh() {
 
 # backup existing files
 
-[[ -f "${ZSHRC_PATH}" || -h "${ZSHRC_PATH}" ]] && backup_file "${ZSHRC_PATH}"
-[[ -f "${VIMRC_PATH}" || -h "${VIMRC_PATH}" ]] && backup_file "${VIMRC_PATH}"
-
-# patch
+backup_file "${ZSHRC_PATH}"
+backup_file "${VIMRC_PATH}"
+backup_file "${TMUX_CONF_PATH}"
 
 # link files
 
 ln -s "${DOTFILES_PATH}/zshrc" "${ZSHRC_PATH}"
 ln -s "${DOTFILES_PATH}/vimrc" "${VIMRC_PATH}"
+ln -s "${DOTFILES_PATH}/tmux.conf" "${TMUX_CONF_PATH}"
 
 # patch zsh theme
 
-patch -p1 -d "${OHMYZSH_PATH}" < "${DOTFILES_PATH}/patches/eastwood.zsh-theme.patch"
-git -C "${OHMYZSH_PATH}" commit -am "custom eastwood prompt"
+EASTWOOD_PATH="${DOTFILES_PATH}/patches/eastwood.zsh-theme.patch"
+PATCH_MSG="custom eastwood prompt"
+if [[ ! $(git -C "${OHMYZSH_PATH}" log --grep="${PATCH_MSG}") ]]; then
+    patch -p1 -d "${OHMYZSH_PATH}" < "${EASTWOOD_PATH}"
+    git -C "${OHMYZSH_PATH}" commit -am "${PATCH_MSG}"
+fi
 
 # git settings
 

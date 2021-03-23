@@ -6,5 +6,7 @@ plugins=(git)
 
 export EDITOR="vim"
 
+bindkey "\x1bU" backward-kill-line
+
 source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

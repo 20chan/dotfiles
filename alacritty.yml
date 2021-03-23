@@ -41,3 +41,10 @@ colors:
     cyan: '0x56b6c2'
     white: '0xdcdfe4'
 
+key_bindings:
+  - { key: Left,     mods: Alt,     chars: "\x1bb"                       }
+  - { key: Right,    mods: Alt,     chars: "\x1bf"                       }
+  - { key: Left,     mods: Command, chars: "\x1bOH",   mode: AppCursor   }
+  - { key: Right,    mods: Command, chars: "\x1bOF",   mode: AppCursor   }
+  - { key: Back,     mods: Command, chars: "\x1bU",    mode: AppCursor   }
+

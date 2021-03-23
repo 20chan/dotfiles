@@ -57,5 +57,7 @@ fi
 
 # git settings
 
+git config --global user.name 20chan
+git config --global user.email 2@0chan.dev
 git config --global push.default current
 

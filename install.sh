@@ -1,11 +1,11 @@
 #!/bin/bash
 
-DOTFILES_PATH="/home/${USER}/.dotfiles"
+DOTFILES_PATH="${HOME}/.dotfiles"
 
-OHMYZSH_PATH="/home/${USER}/.oh-my-zsh"
-ZSHRC_PATH="/home/${USER}/.zshrc"
-VIMRC_PATH="/home/${USER}/.vimrc"
-TMUX_CONF_PATH="/home/${USER}/.tmux.conf"
+OHMYZSH_PATH="${HOME}/.oh-my-zsh"
+ZSHRC_PATH="${HOME}/.zshrc"
+VIMRC_PATH="${HOME}/.vimrc"
+TMUX_CONF_PATH="${HOME}/.tmux.conf"
 
 backup_file() {
     [[ -f "${1}" || -h "${1}" ]] && mv "$1" "${1}.backup"
@@ -20,10 +20,16 @@ install_ohmyzsh() {
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
+install_vimplug() {
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+}
+
 # install requirements
 
 [ ! -f ~/.fzf.zsh ] && install_fzf
 [ ! -d ~/.oh-my-zsh ] && install_ohmyzsh
+[ ! -f ~/.vim/autoload/plug.vim ] && install_vimplug
 
 # backup existing files
 

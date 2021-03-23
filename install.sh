@@ -1,11 +1,12 @@
 #!/bin/bash
 
-DOTFILES_PATH="/home/${USER}/.dotfiles"
+DOTFILES_PATH="${HOME}/.dotfiles"
 
-OHMYZSH_PATH="/home/${USER}/.oh-my-zsh"
-ZSHRC_PATH="/home/${USER}/.zshrc"
-VIMRC_PATH="/home/${USER}/.vimrc"
-TMUX_CONF_PATH="/home/${USER}/.tmux.conf"
+OHMYZSH_PATH="${HOME}/.oh-my-zsh"
+ZSHRC_PATH="${HOME}/.zshrc"
+VIMRC_PATH="${HOME}/.vimrc"
+TMUX_CONF_PATH="${HOME}/.tmux.conf"
+ALACRITTY_PATH="${HOME}/.alacritty.yml"
 
 backup_file() {
     [[ -f "${1}" || -h "${1}" ]] && mv "$1" "${1}.backup"
@@ -24,23 +25,31 @@ install_ohmyzsh() {
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
+install_vimplug() {
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+}
+
 # install requirements
 
 [ ! -f ~/.fzf.zsh ] && install_fzf
 [ ! -d ~/.oh-my-zsh ] && install_ohmyzsh
-install_tmux_plugins
+[ ! -f ~/.vim/autoload/plug.vim ] && install_vimplug
+[ ! -f ~/.tmux/plugins/tpm ] && install_tmux_plugins
 
 # backup existing files
 
 backup_file "${ZSHRC_PATH}"
 backup_file "${VIMRC_PATH}"
 backup_file "${TMUX_CONF_PATH}"
+backup_file "${ALACRITTY_PATH}"
 
 # link files
 
 ln -s "${DOTFILES_PATH}/zshrc" "${ZSHRC_PATH}"
 ln -s "${DOTFILES_PATH}/vimrc" "${VIMRC_PATH}"
 ln -s "${DOTFILES_PATH}/tmux.conf" "${TMUX_CONF_PATH}"
+ln -s "${DOTFILES_PATH}/alacritty.yml" "${ALACRITTY_PATH}"
 
 # patch zsh theme
 
@@ -53,5 +62,7 @@ fi
 
 # git settings
 
+git config --global user.name 20chan
+git config --global user.email 2@0chan.dev
 git config --global push.default current
 

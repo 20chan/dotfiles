@@ -16,6 +16,10 @@ install_fzf() {
     ~/.fzf/install
 }
 
+install_tmux_plugins() {
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+}
+
 install_ohmyzsh() {
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
@@ -24,6 +28,7 @@ install_ohmyzsh() {
 
 [ ! -f ~/.fzf.zsh ] && install_fzf
 [ ! -d ~/.oh-my-zsh ] && install_ohmyzsh
+install_tmux_plugins
 
 # backup existing files
 

@@ -35,7 +35,7 @@ install_vimplug() {
 [ ! -f ~/.fzf.zsh ] && install_fzf
 [ ! -d ~/.oh-my-zsh ] && install_ohmyzsh
 [ ! -f ~/.vim/autoload/plug.vim ] && install_vimplug
-[ ! -f ~/.tmux/plugins/tpm ] && install_tmux_plugins
+[ ! -d ~/.tmux/plugins/tpm ] && install_tmux_plugins
 
 # backup existing files
 

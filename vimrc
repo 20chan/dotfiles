@@ -27,7 +27,7 @@ set nu
 set autoindent
 set cindent
 
-set mouse=a
+set mouse=
 set laststatus=2
 
 call plug#begin('~/.vim/plugged')

@@ -1,3 +1,6 @@
+shell:
+  program: /bin/zsh
+
 window:
   padding:
     x: 8

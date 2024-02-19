@@ -6,7 +6,7 @@ OHMYZSH_PATH="${HOME}/.oh-my-zsh"
 ZSHRC_PATH="${HOME}/.zshrc"
 VIMRC_PATH="${HOME}/.vimrc"
 TMUX_CONF_PATH="${HOME}/.tmux.conf"
-ALACRITTY_PATH="${HOME}/.alacritty.yml"
+ALACRITTY_PATH="${HOME}/.alacritty.toml"
 
 backup_file() {
     [[ -f "${1}" || -h "${1}" ]] && mv "$1" "${1}.backup"
@@ -49,7 +49,7 @@ backup_file "${ALACRITTY_PATH}"
 ln -s "${DOTFILES_PATH}/zshrc" "${ZSHRC_PATH}"
 ln -s "${DOTFILES_PATH}/vimrc" "${VIMRC_PATH}"
 ln -s "${DOTFILES_PATH}/tmux.conf" "${TMUX_CONF_PATH}"
-ln -s "${DOTFILES_PATH}/alacritty.yml" "${ALACRITTY_PATH}"
+ln -s "${DOTFILES_PATH}/alacritty.toml" "${ALACRITTY_PATH}"
 
 # patch zsh theme
 

@@ -1,3 +1,8 @@
+export LANG=en_US.UTF-8
+PROMPT_COMMAND='history -a'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 if [ -d ~/.bashrc.d ]
 then
     for file in ~/.bashrc.d/*; do

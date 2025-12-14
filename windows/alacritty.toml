@@ -1,0 +1,67 @@
+[colors.bright]
+black = "0x282c34"
+blue = "0x61afef"
+cyan = "0x56b6c2"
+green = "0x98c379"
+magenta = "0xc678dd"
+red = "0xe06c75"
+white = "0xdcdfe4"
+yellow = "0xe5c07b"
+
+[colors.normal]
+black = "0x282c34"
+blue = "0x61afef"
+cyan = "0x56b6c2"
+green = "0x98c379"
+magenta = "0xc678dd"
+red = "0xe06c75"
+white = "0xdcdfe4"
+yellow = "0xe5c07b"
+
+[colors.primary]
+background = "0x282c34"
+foreground = "0xdcdfe4"
+
+[font]
+size = 13.0
+
+[font.bold]
+family = "Iosevka Term SS04"
+style = "Bold"
+
+[font.bold_italic]
+family = "Iosevka Term SS04"
+style = "Bold Italic"
+
+[font.italic]
+family = "Iosevka Term SS04"
+style = "Italic"
+
+[font.normal]
+family = "Iosevka Term SS04"
+style = "Regular"
+
+[[keyboard.bindings]]
+chars = "\u001Bb"
+key = "Left"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bf"
+key = "Right"
+mods = "Alt"
+
+[[keyboard.bindings]]
+key = "N"
+mods = "Control|Shift"
+action = "CreateNewWindow"
+
+[terminal.shell]
+program = "C:/Program Files/Git/bin/bash.exe"
+args = ["--login"]
+
+[window.padding]
+x = 8
+y = 8
+
+[terminal]

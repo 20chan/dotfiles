@@ -18,3 +18,5 @@ then
         source "$file"
     done
 fi
+
+. "$HOME/.local/bin/env"

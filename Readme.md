@@ -1,26 +1,17 @@
 # dotfiles
 
-- all-dotfiles management in one directory
-- install script
-    - install pre-requirements
-    - backup existing dotfiles
-    - install dotfiles via symbolic link
-- compatible with macos, linux.. posix compatible
+Used on linux servers, mac
 
-## list
+General:
+- zsh, on-my-zsh, with custom eastwood theme
+- tmux, tpm
+- fzf
+- vim, vimplug
+- git, jujutsu
+- custom alias, bindings
+    - exa,
 
-- install fzf, oh-my-zsh
-- install tpm, vimplug
-- ~/.zshrc
-- ~/.vimrc
-- ~/.tmux.conf
-- ~/.alacritty.yml
-- custom zsh theme eastwood prompt patch
+Only on mac:
+- Alacritty
 
-## usage
-
-```sh
-git clone https://github.com/20chan/dotfiles ~/.dotfiles
-~/.dotfiles/install.sh
-```
-
+Also [Windows](windows/Readme.md)

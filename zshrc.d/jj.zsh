@@ -1,1 +1,1 @@
-source <(jj util completion zsh)
+[ -x "$(command -v jj)" ] && source <(jj util completion zsh)

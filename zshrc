@@ -26,4 +26,4 @@ then
   done
 fi
 
-. "$HOME/.local/bin/env"
+[ -f "$HOME/.local/bin/env" ] && source "$HOME/.local/bin/env"
